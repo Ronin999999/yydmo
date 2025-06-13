@@ -1,0 +1,275 @@
+:root {
+  --primary-bg: #1E1E2D;
+  --secondary-bg: #2D2D3A;
+  --accent-green: #4CAF50;
+  --accent-red: #F44336;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A1A1B5;
+  --border-radius: 8px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 16px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.game-container {
+  max-width: 420px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.balance-container {
+  display: flex;
+  gap: 8px;
+}
+
+.balance-button, .deposit-button {
+  background-color: var(--secondary-bg);
+  color: var(--text-primary);
+  border: none;
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.balance-button {
+  font-weight: 700;
+}
+
+.deposit-button {
+  background-color: #3A3A4A;
+}
+
+.balance-button:active, .deposit-button:active {
+  transform: scale(0.98);
+}
+
+.main-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.game-tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.game-tabs span {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.game-tabs .active {
+  color: var(--text-primary);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 24px;
+}
+
+.grid-cell {
+  aspect-ratio: 1/1;
+  background-color: var(--secondary-bg);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.grid-cell.revealed {
+  background-color: var(--accent-green);
+  transform: scale(0.95);
+}
+
+.grid-cell.mine {
+  background-color: var(--accent-red);
+}
+
+.game-info {
+  background-color: var(--secondary-bg);
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--border-radius);
+  margin-bottom: 16px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.info-row .value {
+  font-weight: 700;
+}
+
+.bet-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#betAmount {
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  border: 1px solid #444;
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  width: 80px;
+  font-size: 14px;
+}
+
+.play-button {
+  background-color: var(--accent-green);
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.play-button:active {
+  transform: scale(0.98);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-content {
+  background-color: var(--secondary-bg);
+  padding: 24px;
+  border-radius: var(--border-radius);
+  width: 80%;
+  max-width: 300px;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+#depositInput {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  border: 1px solid #444;
+  border-radius: var(--border-radius);
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.confirm-button {
+  flex: 1;
+  background-color: var(--accent-green);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.cancel-button {
+  flex: 1;
+  background-color: var(--accent-red);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.help-button {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Анимации */
+@keyframes cellReveal {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.grid-cell.revealed {
+  animation: cellReveal 0.3s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mines Game</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="game-container">
+    <!-- Верхняя панель -->
+    <div class="header">
+      <button class="back-button">Назад</button>
+      <div class="balance-container">
+        <button id="balanceButton" class="balance-button">45 189,51 ₽</button>
+        <button class="deposit-button">Пополнить</button>
+      </div>
+    </div>
+
+    <!-- Основное игровое поле -->
+    <div class="main-game">
+      <h1 class="game-title">САУЕMINES</h1>
+      <div class="game-tabs">
+        <span class="active">Live</span>
+        <span>Мои</span>
+      </div>
+
+      <!-- Игровая сетка -->
+      <div id="gameGrid" class="grid-container"></div>
+
+      <!-- Информация о игре -->
+      <div class="game-info">
+        <div class="info-row">
+          <span>Макс. выигрыш</span>
+          <span class="value">35 144 ₽</span>
+        </div>
+        <div class="info-row">
+          <span>Ловушек</span>
+          <span class="value">3</span>
+        </div>
+        <div class="bet-controls">
+          <input type="number" id="betAmount" value="16" min="1">
+          <button id="playButton" class="play-button">Играть</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модальное окно пополнения -->
+    <div id="depositModal" class="modal">
+      <div class="modal-content">
+        <h3>Пополнить баланс</h3>
+        <input type="number" id="depositInput" placeholder="Введите сумму">
+        <div class="modal-buttons">
+          <button id="confirmDeposit" class="confirm-button">Подтвердить</button>
+          <button id="cancelDeposit" class="cancel-button">Отмена</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Кнопка "Как играть" -->
+    <button class="help-button">Как играть</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
